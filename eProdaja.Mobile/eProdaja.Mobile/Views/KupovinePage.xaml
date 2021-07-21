@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:eProdaja.Mobile.ViewModels;assembly=eProdaja.Mobile"
+             x:Class="eProdaja.Mobile.Views.KupovinePage">
+    <ContentPage.BindingContext>
+        <viewModels:KupovineViewModel></viewModels:KupovineViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Kupovine"
+                VerticalOptions="CenterAndExpand" />
+            <Label Text="Odaberite period za prikaz kupovina"
+                   VerticalOptions="Start"/>
+            <Label Text="Pocetak perioda :"
+                   VerticalOptions="Start"/>
+            <DatePicker Date="{Binding SelectedPocetak}"
+                        x:Name="DpPocetak"></DatePicker>
+            <Label Text="Kraj perioda :"
+                   VerticalOptions="Start"/>
+            <DatePicker Date="{Binding SelectedKraj}"
+                        x:Name="DpKraj"></DatePicker>
+            <Button Command="{Binding InitCommand}"
+                    Text="Prikazi"
+                    BackgroundColor="RoyalBlue"></Button>
+            <ListView ItemsSource="{Binding KupovineList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Datum}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding Ukupno}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding PosjedovanjeCovidPass}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
