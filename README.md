@@ -1,5 +1,5 @@
 # About the project
-Desktop and mobile application which can be used to sell and buy items
+Desktop and mobile application which can be used to sell and buy items  
 Desktop part of application is supposed to be used by workers in shop, while mobile app is for clients
 
 ## eProdaja back-end REST API (ASP.NET Core 3.1)
